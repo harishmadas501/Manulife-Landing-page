@@ -10,7 +10,7 @@
 
             CtaButtons.render({
                 "button1": {
-                    "card": "0598b6a6",
+                    "card": "d1b4d742",
                     "label": "Contact",
                     "icon": "contact"
                 },

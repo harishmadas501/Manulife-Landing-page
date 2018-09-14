@@ -45,34 +45,29 @@ var Translations = {
      *
      * If the CTA buttons are not required then remove the content from the variable - "CtaButtonSettings": {};
      */
-    "CtaButtonSettings": 
-    {
-        "button1": 
-        {
-            "card": "e87c2eec",
+    "CtaButtonSettings": {
+        "button1": {
+            "card": "d1b4d742",
             "label": "Contact",
             "icon": "contact"
         },
-        "button2": 
-        {
-            "url": "http://www.realtimecontent.com/",
+        "button2": {
+            "card": "d1b4d742",
             "label": "Website",
             "icon": "website"
         },
-        "button3": 
-        {
-            "card": "9518c31e",
-            "label": "Feedback",
-            "icon": "Feedback"
+        "button3": {
+            "card": "d1b4d742",
+            "label": "Email",
+            "icon": "email"
         },
-        "button4": 
-        {
-            "card": "fbbc1aaf",
+        "button4": {
+            "card": "d1b4d742",
             "label": "Save",
             "icon": "save"
         },
         "button5": {
-            "card": "99d7e923",
+            "url": "http://example.com/",
             "label": "Share",
             "icon": "share"
         }
@@ -96,8 +91,15 @@ var Translations = {
             "trackingName": "promo1",
             "url": "http://example.com/",
             "label": "Promo (Top)",
-            "desktopImage": "./images/Promo.png",
-            "mobileImage": "./images/Promo.png"
+            "desktopImage": "./images/promo_portrait.png",
+            "mobileImage": "./images/promo_landscape.png"
+        },
+        "promo2": {
+            "trackingName": "promo2",
+            "url": "http://example.com/",
+            "label": "Promo (Bottom)",
+            "desktopImage": "./images/promo_portrait.png",
+            "mobileImage": "./images/promo_landscape.png"
         }
     },
 
@@ -112,88 +114,33 @@ var Translations = {
      */
     "ChapterSettings": [
         {
-            "label": "INTRODUCTION",
+            "label": "Introduction",
             "states": [
                 {
                     "cardId": "START",
-                    "width": 13
+                    "width": 20
                 }
             ]
         },
         {
-            "label": "HELPING YOU",
+            "label": "Your Account",
             "states": [
                 {
-                    "cardId": "26f3539e",
-                    "width": 12
-                }    
-            ]
-        },
-         {
-            "label": "PERSONALIZATION",
-            "states": [
-                {
-                    "cardId": "129c0e3c",
-                    "width": 8
+                    "cardId": "77a834f0",
+                    "width": 20
                 },
                 {
-                    "cardId": "fc8d1a3a"
-                    ,
-                    "width": 8
-                }
-            ]
-        },
-        
-        {
-            "label": "SERVICE TOUR",
-            "states": [
-                {
-                    "cardId": "8af5f097",
-                    "width": 7
-                },
-                 {
-                    "cardId": "04ae54c4",
-                    "width": 7
+                    "cardId": "c23a68c9",
+                    "width": 20
                 }
             ]
         },
         {
-            "label": "OPTIONAL INFORMATION",
+            "label": "Thank You",
             "states": [
                 {
-                    "cardId": "f4824bf8",
-                    "width": 11
-                },
-                {
-                    "cardId": "784e106c",
-                    "width": 11
-                }
-               
-            ]
-        },
-        {
-            "label": "QUESTIONS",
-            "states": [
-                {
-                    "cardId": "ddc44336",
-                    "width": 3
-                },
-                {
-                    "cardId": "ccec9820",
-                    "width": 6
-                },
-                {
-                    "cardId": "d0bc6b55",
-                    "width": 6
-                }
-            ]
-        },
-        {
-            "label": "THANKS",
-            "states": [
-                {
-                    "cardId": "End",
-                    "width": 8
+                    "cardId": "7b0123a5",
+                    "width": 40
                 }
             ]
         }

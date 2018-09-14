@@ -3,7 +3,7 @@
     font-family: "OpenSans_Regular";
 
     src: url("../fonts/OpenSans/Open_Sans_Normal.eot"); /* IE9 Compat Modes */
-    src: url("../fonts/OpenSans/Open_Sans_Normald41d.eot?#iefix") format("embedded-opentype"),
+    src: url("../fonts/OpenSans/Open_Sans_Normal.eot?#iefix") format("embedded-opentype"),
     url("../fonts/OpenSans/Open_Sans_Normal.woff2") format("woff2"), /* Pretty Modern Browsers */
     url("../fonts/OpenSans/Open_Sans_Normal.woff") format("woff"),
     url("../fonts/OpenSans/Open_Sans_Normal.ttf") format("truetype"), /* Safari, Android, iOS */
@@ -14,7 +14,7 @@
     font-family: "OpenSans_Bold";
 
     src: url("../fonts/OpenSans/Open_Sans_Bold.eot"); /* IE9 Compat Modes */
-    src: url("../fonts/OpenSans/Open_Sans_Boldd41d.eot?#iefix") format("embedded-opentype"),
+    src: url("../fonts/OpenSans/Open_Sans_Bold.eot?#iefix") format("embedded-opentype"),
     url("../fonts/OpenSans/Open_Sans_Bold.woff2") format("woff2"), /* Pretty Modern Browsers */
     url("../fonts/OpenSans/Open_Sans_Bold.woff") format("woff"),
     url("../fonts/OpenSans/Open_Sans_Bold.ttf") format("truetype"), /* Safari, Android, iOS */
@@ -35,13 +35,12 @@
 
 /** Main Styling (for 1080p) **/
 .body {
-    background-color: #cacfd6;
-    font-family: "OpenSans_Regular", Arial;.
+    background-color: #f0f0f0;
+    font-family: "OpenSans_Regular", Arial;
 }
 
 .top-wrapper {
-      background-image: "images/background_tile.jpg";
-      background-color: #d8dde2
+    background: #717171 url("../images/background_tile.png");
 }
 
 .fullscreen .top-wrapper {
@@ -56,6 +55,16 @@
 
 .fullscreen .header {
     display: none;
+}
+
+.header__logo {
+    width:100%;
+    height:75px;
+    margin: 10px 0 0;
+    background: url("../images/logo.png") no-repeat;
+    background-position: center;
+    background-size: contain;
+    float:left;
 }
 
 .header__lowbandwidth {
@@ -119,7 +128,10 @@
 
 .social--top .social__icon:hover,
 .social--top .social__icon:active,
-.social--top .focusable.social__icon:focus {
+.social--top .focusable.social__icon:focus,
+.social--bottom .social__icon:hover,
+.social--bottom .social__icon:active,
+.social--bottom .focusable.social__icon:focus {
     background-position-y: 33.333%;
     --social-bgY: 33.333%;
 }
@@ -159,33 +171,36 @@
     --social-bgX: 100%;
 }
 
+.cta--side,
+.promo--side {
+    background-color: #2e2e2e;
+}
+
 .cta__button {
     color: #fff;
-    background-color: #0a0a0a;
-    border-radius: 0;
+    background-color: #0072b8;
     border: 0;
     font-family: Arial;
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
-    border-bottom: 1px solid #938e8e;
+    border-radius: 0;
 }
 
-.cta__button--button-1{
-border-top-left-radius: 6%;
-border-top-right-radius: 6%;
+.cta--side.cta--5 .cta__button {
+    height: calc(20% - 1px);
+    margin-bottom: 1px;
 }
 
-.cta__button--button-5{
-border-bottom-left-radius: 6%;
-border-bottom-right-radius: 6%;
+.cta--side.cta--5 .cta__button:last-child {
+    height:20%;
+    margin-bottom: 0;
 }
 
 .cta__button:hover,
 .cta__button:active,
-.focusable.cta__button:focus 
-{
-    background-color: #3bb7f9;
+.focusable.cta__button:focus {
+    background-color: #00436e;
 }
 
 .fullscreen .cta--side .cta__button {
@@ -263,57 +278,15 @@ border-bottom-right-radius: 6%;
 }
 
 .player {
-   /** background-color: #dbdbdb; **/
-}
-
-.player__splash {
-    opacity: 0;
-    background-color: #000;
-    cursor: pointer;
-}
-
-.player__splash-image {
-    --splash-bgX: 0%;
-    --splash-bgY: 0%;
-
-    margin: 0 auto;
-    margin-top: calc((100% * (9/16)) / 2 - (182px / 2)); /* Calculate the margin-top based on half the video height, minus half the height of the splash icon */
-    width: 175px;
-    height: 182px;
-    background: url("../images/splash_play.png") no-repeat;
-    background-position: var(--splash-bgX) var(--splash-bgY);
-    background-size: 200% 200%;
-}
-
-.player__splash:hover .player__splash-image,
-.player__splash:active .player__splash-image,
-.focusable.player__splash:focus .player__splash-image {
-    background-position-x: 100%;
-    --splash-bgX: 100%;
-}
-
-.player__splash-image--white {
-    background-position-y: 0;
-    --splash-bgY: 0;
-}
-
-.player__splash-image--grey {
-    background-position-y: 100%;
-    --splash-bgY: 100%;
+    background-color: #dbdbdb;
 }
 
 .promo__item {
-    background-color: #271818a8;
-    border-radius: 3px 3px 3px 3px;
+    background-color: #fff;
 }
-
-.promo__item:hover {
-    background-color: #07070763;
-}
-
 
 .promo--side .promo__image {
-    background-size: 100% 100%;
+    background-size: 200% 100%;
 }
 
 .promo--side .promo__link:hover .promo__image,
@@ -323,11 +296,11 @@ border-bottom-right-radius: 6%;
 }
 
 .promo--bottom .promo__image {
-    background-size: 100% 100%;
+    background-size: 100% 200%;
 }
 
 .promo__link {
-    color: #000;
+    color: #0f0f0f;
     text-decoration: none;
 }
 
@@ -339,41 +312,28 @@ border-bottom-right-radius: 6%;
 
 .timeline {
     color: #fff;
-    background-color:#0a0a0a;
+    background-color: #1f1f1f;
     font-size: 20px;
 }
 
-#jsTimelineProgress.ui-slider-handle
-{
-    background: url(images/hi-res/timeline-marker-hi-res.png) 0px 0px no-repeat;
-    height: 82px;
-    top: -22px;
-    width: 24px;
-    border: none;
-    margin-left: -12px !important;
+.timeline__cover {
+    background: #00436e;
 }
 
-/**.timeline__cover {
-    background: #00436e;
-} **/
-
 .timeline__controls {
-    background-color:#0a0a0a;
-    border-color: #333;
+    background-color: #2e2e2e;
+    border-color: #dbdbdb;
 }
 
 .timeline__button {
-    background-color: #0a0a0a;
+    background-color: #2e2e2e;
     cursor: pointer;
 }
 
 .timeline__button--skip-back,
-.timeline__button--skip-forward {
-    width: 115px;
-}
-
+.timeline__button--skip-forward,
 .timeline__button--play-pause {
-    width: 100px;
+    width: 90px;
 }
 
 .fullscreen .timeline__button--skip-back,
@@ -384,11 +344,12 @@ border-bottom-right-radius: 6%;
 
 .timeline__button--settings,
 .timeline__button--fullscreen {
-    width: 60px;
+    width: 50px;
+    text-align: center;
 }
 
 .timeline__button--volume {
-    width: 52px;
+    width: 45px;
 }
 
 .timeline__button-icon {
@@ -397,9 +358,8 @@ border-bottom-right-radius: 6%;
 
     display: block;
     margin: 0 auto;
-	margin-left:14px;
-    width: 36px;
-    height: 31px;
+    width: 30px;
+    height: 30px;
     background: url("../images/timeline_controls.png") no-repeat;
     background-position-y: 50%;
     background-position: var(--timeline-bgX) var(--timeline-bgY);
@@ -411,18 +371,6 @@ border-bottom-right-radius: 6%;
     height: 28px;
 }
 
-#viewerProfile 
-{
-    margin-bottom:30px
-    width: 960px;
-    left: 230px;
-    position: relative;
-    text-align: center;
-    font-family: DINRegular, Arial, sans-serif;
-    font-size: 16px;
-    color: #88a0b7;
-}
-
 .timeline__button:hover .timeline__button-icon,
 .timeline__button:active .timeline__button-icon,
 .focusable.timeline__button:focus .timeline__button-icon {
@@ -431,20 +379,20 @@ border-bottom-right-radius: 6%;
 }
 
 .timeline__button-icon--skip-back {
-    margin-right: 8px;
+    margin-right: 10px;
     background-position-x: calc((100%/26) * 2);
     --timeline-bgX: calc((100%/26) * 2);
 }
 
 .timeline__button-icon--play {
-    width: 25px;
-    height: 26px;
+    width: 35px;
+    height: 35px;
     background-position-x: calc((100%/26) * 0);
     --timeline-bgX: calc((100%/26) * 0);
 }
 
 .timeline__button-icon--pause {
-    width: 25px;
+    width: 35px;
     height: 35px;
     background-position-x: calc((100%/26) * 1);
     --timeline-bgX: calc((100%/26) * 1);
@@ -457,7 +405,7 @@ border-bottom-right-radius: 6%;
 }
 
 .timeline__button-icon--skip-forward {
-    margin-left: 8px;
+    margin-left: 10px;
     background-position-x: calc((100%/26) * 3);
     --timeline-bgX: calc((100%/26) * 3);
 }
@@ -557,12 +505,11 @@ border-bottom-right-radius: 6%;
 }
 
 .timeline-progress-hover {
-    background-color: black;
+    background-color: #00436e;
 }
 
 .timeline-progress {
-    background-color: #060606;
-  
+    background-color: #0072b8;
 }
 
 .timeline-chapters--seen {
@@ -583,24 +530,21 @@ border-bottom-right-radius: 6%;
 
 .timeline-chapters__chapter,
 .fullscreen .timeline-chapters__chapter {
-    border-right: 1px solid #333;
+    border-right: 2px solid #c0c0c0;
 }
 
 .timeline-chapters__chapter:last-child {
     border: none;
 }
 
-.timeline-volume__bg 
-{
+.timeline-volume__bg {
     background-color: #717171;
     border-radius: 5px;
 }
 
-.timeline-volume__level 
-{
-    background-color: #3fdfef;
+.timeline-volume__level {
+    background-color: #0072b8;
     border-radius: 5px;
-    margin-top: 0px;
 }
 
 .timeline-volume__ball {
@@ -619,13 +563,13 @@ border-bottom-right-radius: 6%;
 .timeline__settings-language,
 .timeline__settings-cc {
     position: absolute;
-    top: -158px;
+    top: -209px;
     right: 340px;
-    padding: 10px;
-    width: 156px;
-    height: 158px;
-    background-color: black;
-    font-size: 11px;
+    padding: 16px;
+    width: 220px;
+    height: 210px;
+    background-color: #2e2e2e;
+    font-size: 17px;
 }
 
 .fullscreen .timeline__settings-popout,
@@ -734,7 +678,7 @@ border-bottom-right-radius: 6%;
 .footer {
     color: #3d3d3d;
     background-color: #f0f0f0;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .footer__poweredby {
@@ -743,7 +687,6 @@ border-bottom-right-radius: 6%;
 
 .footer__copyright {
     text-align: left;
-	margin-left:40px;
 }
 
 .footer__links {
@@ -751,14 +694,14 @@ border-bottom-right-radius: 6%;
 }
 
 .footer__link {
-    color: #74777d;
+    color: #717171;
     text-decoration: none;
 }
 
 .footer__link:hover,
 .footer__link:active,
 .focusable.footer__link:focus {
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 .footer__link--image:hover,
@@ -767,57 +710,54 @@ border-bottom-right-radius: 6%;
     text-decoration: none;
 }
 
+/* iOS devices specific */
+@supports (-webkit-overflow-scrolling: touch) {
+    .cta--side.cta--5 .cta__button {
+        height: calc(20% - 0.5px);
+    }
+}
+
 /** 720p **/
 @media screen and (max-width: 2460px) {
     .header__preparedfor {
-        font-size: 2px;
+        font-size: 14px;
+    }
+
+    .header__text {
+        padding:20px 0 10px;
     }
 
     .fullscreen .cta--side .cta__label {
         line-height: 50px;
         font-size: 20px;
     }
-    .promo--side .promo__image
-     {
-		 width: 130px;
-                 height: 167px;
-	    	 margin-top: -568px;
-	}
-    
+
+    .cta--side {
+        height: 720px;
+    }
+
     .cta__icon {
         margin-bottom: 15px;
-        width: 25px;
-        height: 25px;
+        width: 50px;
+        height: 50px;
     }
 
     .fullscreen .cta__icon {
         margin-right: calc(((50/230) * 100%) - 25px);
-		background: url(side_buttons3.png);
     }
 
     .cta--side .cta__button {
-        font-size: 11px;
-    }
-
-    .player__splash-image {
-        margin-top: calc((100% * (9/16)) / 2 - (130px / 2)); /* Calculate the margin-top based on half the video height, minus half the height of the splash icon */
-        width: 125px;
-        height: 130px;
+        font-size: 24px;
     }
 
     .timeline {
         font-size: 16px;
-        width:1420px;
-        height:60px;
     }
 
     .timeline__button--skip-back,
-    .timeline__button--skip-forward {
-        width: 53px;
-    }
-
+    .timeline__button--skip-forward,
     .timeline__button--play-pause {
-        width: 45px;
+        width: 65px;
     }
 
     .fullscreen .timeline__button-icon {
@@ -831,52 +771,9 @@ border-bottom-right-radius: 6%;
         height: 30px;
     }
 
-    .footer 
-	{
-		height: 22px;
-		position: relative;
-		top: -10px;
-		width: 1420px;
-		margin-left: 243px;
-		margin-right: auto;
-		margin-top: 112px;
-		color: #74777d;
-		font-family: Arial, Helvetica, sans-serif;
-		font-size: 12px;
-		font-weight: bold;
+    .footer {
+        font-size: 12px;
     }
-	
-	#extra_footer 
-	{
-		width: 1420px;
-    		margin: 10px auto;
-    		text-align: left;
-    		margin-top: 25px;
-    		padding: 30px;
-    		border-top: 3px solid #74777d;
-    		font-size: 15px;
-    		line-height: 15px;
-    		font-family: 'DINRegular', Arial, sans-serif;
-    		color: #74777d;
-	}
-	
-	#extra_footer.heading 
-	{
-    font-size: 16px;
-	font-family: 'DINRegular', Arial, sans-serif;
-    margin-bottom: 10px;
-    }
-	
-	p {
-      margin-top:10px;
-	  font-family: 'DINRegular', Arial, sans-serif;
-	  font-size:15px;
-    }
-	
-	#extra_footer .bullet-points 
-	{
-		margin-top: 8px;
-	}
 
     .social--top .social__icon,
     .fullscreen .social--top .social__icon {
@@ -901,7 +798,7 @@ border-bottom-right-radius: 6%;
     .timeline__settings-quality,
     .timeline__settings-language,
     .timeline__settings-cc {
-        right: -2px;
+        right: 200px;
     }
 
     .timeline--no-volume .timeline__settings-popout,
@@ -917,6 +814,10 @@ border-bottom-right-radius: 6%;
     .timeline--no-volume .timeline__controls--right-no-fs .timeline__settings-cc {
         right: 85px;
     }
+
+    .header__logo {
+        height: 50px;
+    }
 }
 
 /** 540p **/
@@ -926,33 +827,6 @@ border-bottom-right-radius: 6%;
         width: 28px;
         height: 28px;
     }
-    .clearfix
-    {
-       width: 1420px;
-       height: 276px;
-    }
-	
-.footer 
- {
-    height: 22px;
-    position: relative;
-    top: -10px;
-    width: 1420px;
-    margin-left: -39px;
-    margin-right: auto;
-    margin-top: 112px;
-    color: #74777d;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 12px;
-    font-weight: bold;
-}
-	
-	.promo--side .promo__image{
-		width:100%;
-		height:100%;
-		
-    		margin-top: 74px;
-     }
 
     .social--top-right .social__icon {
         margin-right: 4px;
@@ -972,10 +846,14 @@ border-bottom-right-radius: 6%;
         font-size: 18px;
     }
 
+    .cta--side {
+        height: 540px;
+    }
+
     .cta__icon {
         margin-bottom: 10px;
-        width: 20px;
-        height: 20px;
+        width: 40px;
+        height: 40px;
     }
 
     .fullscreen .cta__icon {
@@ -983,13 +861,7 @@ border-bottom-right-radius: 6%;
     }
 
     .cta--side .cta__button {
-        font-size: 10px;
-    }
-
-    .player__splash-image {
-        margin-top: calc((100% * (9/16)) / 2 - (115px / 2)); /* Calculate the margin-top based on half the video height, minus half the height of the splash icon */
-        width: 110px;
-        height: 115px;
+        font-size: 18px;
     }
 
     .timeline {
@@ -1019,17 +891,14 @@ border-bottom-right-radius: 6%;
     }
 
     .timeline__button--skip-back,
-    .timeline__button--skip-forward {
-        width: 57px;
-    }
-
+    .timeline__button--skip-forward,
     .timeline__button--play-pause {
-        width: 51px;
+        width: 50px;
     }
 
     .timeline__button--settings,
     .timeline__button--fullscreen {
-        width: 45px;
+        width: 50px;
     }
 
     .timeline__button--volume {
@@ -1089,16 +958,14 @@ border-bottom-right-radius: 6%;
 
 /** 360p **/
 @media screen and (max-width: 1230px) {
+    .header__text {
+        padding: 10px 0;
+    }
+
     .social--top .social__icon {
         width: 26px;
         height: 26px;
     }
-	.promo--side .promo__image{
-		width:100%;
-		height:100%;
-		 
-    		margin-top: 38px;
-	}
 
     .social--top-right .social__icon {
         margin-right: 3px;
@@ -1118,10 +985,14 @@ border-bottom-right-radius: 6%;
         font-size: 16px;
     }
 
+    .cta--side {
+        height: 360px;
+    }
+
     .cta__icon {
         margin-bottom: 6px;
-        width: 10px;
-        height: 11px;
+        width: 25px;
+        height: 25px;
     }
 
     .fullscreen .cta__icon {
@@ -1129,13 +1000,7 @@ border-bottom-right-radius: 6%;
     }
 
     .cta--side .cta__button {
-        font-size: 6px;
-    }
-
-    .player__splash-image {
-        margin-top: calc((100% * (9/16)) / 2 - (101px / 2)); /* Calculate the margin-top based on half the video height, minus half the height of the splash icon */
-        width: 97px;
-        height: 101px;
+        font-size: 12px;
     }
 
     .timeline {
@@ -1174,12 +1039,9 @@ border-bottom-right-radius: 6%;
     }
 
     .timeline__button--skip-back,
-    .timeline__button--skip-forward {
-        width: 38px;
-    }
-
+    .timeline__button--skip-forward,
     .timeline__button--play-pause {
-        width: 34px;
+        width: 30px;
     }
 
     .timeline__button-icon--skip-back {
@@ -1188,6 +1050,11 @@ border-bottom-right-radius: 6%;
 
     .timeline__button-icon--skip-forward {
         margin-left: 4px;
+    }
+
+    .timeline__button--settings,
+    .timeline__button--fullscreen {
+        width: 30px;
     }
 
     .timeline__settings-popout,
@@ -1218,18 +1085,27 @@ border-bottom-right-radius: 6%;
     .timeline--no-volume .timeline__controls--right-no-fs .timeline__settings-cc {
         right: 35px;
     }
+
+    .top-wrapper--no-cta .header, .top-wrapper--no-promo .header {
+        padding: 0;
+    }
+
+    .header__logo {
+        height:40px;
+    }
+
 }
 
 /** Mobile devices **/
 @media screen and (max-width: 820px) {
+    .cta--side.cta--5 .cta__button {
+        margin-right:0;
+        border: none;
+    }
+
     .fullscreen .cta--side .cta__label {
         font-size: 12px;
     }
-	.promo--side .promo__image{
-		width:100%;
-		height:100%;
-	    	   
-	}
 
     .timeline__button--skip-back,
     .timeline__button--skip-forward {
@@ -1289,10 +1165,6 @@ border-bottom-right-radius: 6%;
         right: 0;
     }
 
-    .bottom-wrapper {
-        background-color: #dbdbdb;
-    }
-
     .footer__poweredby,
     .footer__copyright,
     .footer__links {
@@ -1302,20 +1174,28 @@ border-bottom-right-radius: 6%;
 
 /** Mobile devices in landscape and tablet devices in portrait **/
 @media screen and (max-width: 820px) {
-    .cta__button {
-       /** border-right: 1px solid #fff;
-        border-bottom: 1px solid #fff; **/
+
+    .header__text {
+        padding: 10px 0;
+    }
+
+    .cta--bottom.cta--5 .cta__button {
+        margin: 1px 0;
+        width: 20%;
+        border: none;
+    }
+
+    .header__logo {
+        width:80%;
+        margin:10px auto 0;
+        float:none;
+        height:40px;
+        background-position: center;
     }
 }
 
 /** Mobile devices in landscape **/
 @media screen and (max-width: 820px) and (orientation: landscape) {
-    .main {
-        -webkit-transition: width 0.5s ease-in-out;
-           -moz-transition: width 0.5s ease-in-out;
-             -o-transition: width 0.5s ease-in-out;
-                transition: width 0.5s ease-in-out;
-    }
 
     .cta--1 .cta__button--button-1,
     .cta--2 .cta__button--button-2,
@@ -1329,34 +1209,26 @@ border-bottom-right-radius: 6%;
 /** Mobile devices in portrait **/
 @media screen and (max-width: 700px) and (orientation: portrait) {
     .header__logo {
-      /**  width: 300px; **/
-    }
-.promo--side .promo__image{
-		width:100%;
-		height:100%;
-	    	    
-	}
-    .player__splash-image {
-        margin-top: calc((100% * (9/16)) / 2 - (78px / 2)); /* Calculate the margin-top based on half the video height, minus half the height of the splash icon */
-        width: 75px;
-        height: 78px;
+        width: 300px;
     }
 
-    .cta__button {
-        border: 1px solid #fff;
-        border-right: 0;
+    .header__text {
+        width:90%;
+        margin:0 auto;
+    }
+
+    .cta--bottom.cta--5 .cta__button {
+        border: 1px solid #0f0f0f;
+        border-right: none;
+        margin: 0;
+    }
+
+    .cta--bottom.cta--5 .cta__button--button-1 {
+        border-left: none;
     }
 
     .fullscreen .cta--side .cta__label {
         font-size: 10px;
-    }
-
-    .cta--1 .cta__button--button-1,
-    .cta--2 .cta__button--button-2,
-    .cta--3 .cta__button--button-3,
-    .cta--4 .cta__button--button-4,
-    .cta--5 .cta__button--button-5 {
-        border-right: 1px solid #fff;
     }
 
     .cta__icon {
@@ -1364,7 +1236,7 @@ border-bottom-right-radius: 6%;
     }
 
     .cta--bottom .cta__button {
-        font-size: 12px;
+        font-size: 15px;
     }
 }
 
@@ -1374,11 +1246,7 @@ border-bottom-right-radius: 6%;
         margin-bottom: 3px;
     }
 }
-.promo--side .promo__image{
-	    width: 130px;
-    	    height: 167px;
-	    	    
-	}
+
 @media screen and (max-width: 375px) and (orientation: portrait) {
     .timeline__button-icon--skip-forward {
         margin-left: 0px;
@@ -1412,12 +1280,6 @@ border-bottom-right-radius: 6%;
 
     .fullscreen .cta--side .cta__button:hover .cta__label {
         opacity: 0;
-    }
-
-    .player__splash:hover .player__splash-image,
-    .player__splash:active .player__splash-image {
-        background-position-x: 0;
-        --splash-bgX: 0;
     }
 
     .timeline__settings-heading--clickable:hover .timeline__button-icon,

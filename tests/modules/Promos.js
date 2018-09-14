@@ -50,10 +50,10 @@
             var desktopPromoImages = $("#jsPromoContainerDesktop .promo__image"),
                 mobilePromoImages = $("#jsPromoContainerMobile .promo__image");
 
-            assert.ok($(desktopPromoImages[0]).css("background-image").includes("promo_portrait.png"));
-            assert.ok($(mobilePromoImages[0]).css("background-image").includes("promo_landscape.png"));
-            assert.ok($(desktopPromoImages[1]).css("background-image").includes("promo_portrait2.png"));
-            assert.ok($(mobilePromoImages[1]).css("background-image").includes("promo_landscape2.png"));
+            assert.ok($(desktopPromoImages[0]).css("background-image").match(/promo_portrait\.png/) !== null);
+            assert.ok($(mobilePromoImages[0]).css("background-image").match(/promo_landscape\.png/) !== null);
+            assert.ok($(desktopPromoImages[1]).css("background-image").match(/promo_portrait2\.png/) !== null);
+            assert.ok($(mobilePromoImages[1]).css("background-image").match(/promo_landscape2\.png/) !== null);
 
             var desktopPromoLabels = $("#jsPromoContainerDesktop .promo__label"),
                 mobilePromoLabels = $("#jsPromoContainerMobile .promo__label");

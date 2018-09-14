@@ -2,8 +2,7 @@ function isInArray(value, array) {
     return array.indexOf(value) > -1;
 }
 
-function isEmpty(obj) 
-{
+function isEmpty(obj) {
     for (var key in obj) {
         if (obj.hasOwnProperty(key)) {
             return false;
@@ -12,16 +11,12 @@ function isEmpty(obj)
     return true;
 }
 
-if (!Object.keys) 
-{
-    Object.keys = function(obj) 
-    {
+if (!Object.keys) {
+    Object.keys = function(obj) {
         var keys = [];
 
-        for ( var i in obj) 
-        {
-            if (obj.hasOwnProperty(i)) 
-            {
+        for ( var i in obj) {
+            if (obj.hasOwnProperty(i)) {
                 keys.push(i);
             }
         }
@@ -30,8 +25,7 @@ if (!Object.keys)
     };
 }
 
-$(document).ready(function() 
-{
+$(document).ready(function() {
 
     $("#jsDate").text(Utils.getFullYear());
     /**
@@ -1175,8 +1169,6 @@ var CtaButtons = {
     openSideCard: function(buttonName) {
         CtaButtons.closeAllSideCards();
 
-        VideoPlayerInterface.hideResumeSplash();
-
         VideoPlayerInterface.iframeWindow.rtc.utils.track("sidebutton.click", buttonName);
 
         // Hide any interaction cards in the video and show the side card instead
@@ -1186,7 +1178,7 @@ var CtaButtons = {
 
         SideButtons.pausedOnOpen = CtaButtons.pausedOnOpen = !VideoPlayerInterface.isPlaying;
 
-        VideoPlayerInterface.actions.pause(false);
+        VideoPlayerInterface.actions.pause();
 
         var cardId = CtaButtons.getCardIdForButton(buttonName);
 
@@ -1710,12 +1702,6 @@ var VideoPlayerInterface = {
         } catch(e) {
             console.log("Unable to initialise the VideoPlayerInterface.", e.message);
         }
-
-        // Set a click handler on the resume splash screen
-        $("#jsResumeSplash").click(function() {
-            VideoPlayerInterface.actions.play();
-        });
-
     },
 
     /**
@@ -1762,9 +1748,6 @@ var VideoPlayerInterface = {
 
                 // Update play pause
                 Timeline.updatePlayPauseButton();
-
-                // Update resume splash screen
-                VideoPlayerInterface.toggleResumeSplash();
 
                 // Update volume slider
                 var globalVolumeFromVideo = VideoPlayerInterface.iframeWindow.globalVolume;
@@ -1842,37 +1825,6 @@ var VideoPlayerInterface = {
     },
 
     /**
-     * Toggle the resume splash screen that appears over the video when paused
-     */
-    toggleResumeSplash: function() {
-        var resumeVisible = $("#jsResumeSplash").is(":visible");
-        var aboutDialogVisible = VideoPlayerInterface.iframeWindow.$("#aboutModal").is(":visible");
-        var times = VideoPlayerInterface.iframeWindow.rtc.player.getVideoTimes();
-        var cardsOpen = VideoPlayerInterface.iframeWindow.rtc.card.isCardVisible();
-        var customErrorOpen = VideoPlayerInterface.iframeWindow.rtc.card.isFailoverMessageVisible();
-
-        if (!VideoPlayerInterface.isPlaying && !resumeVisible && !aboutDialogVisible && times.play > 0 && !cardsOpen && !customErrorOpen) {
-            VideoPlayerInterface.showResumeSplash();
-        } else if((VideoPlayerInterface.isPlaying || cardsOpen) && resumeVisible) {
-            VideoPlayerInterface.hideResumeSplash();
-        }
-    },
-
-    /**
-     * Show the resume splash screen
-     */
-    showResumeSplash: function() {
-        $("#jsResumeSplash").show();
-    },
-
-    /**
-     * Hide the resume splash screen
-     */
-    hideResumeSplash: function() {
-        $("#jsResumeSplash").hide();
-    },
-
-    /**
      * Gets details of the chapters of the current video
      *
      * @return {Array.<Object>} Array of chapter details (start time, duration etc)
@@ -1896,33 +1848,28 @@ var VideoPlayerInterface = {
     actions: {
         skipBack: function(currentState) {
             CtaButtons.closeAllSideCards();
-            VideoPlayerInterface.hideResumeSplash();
             VideoPlayerInterface.iframeWindow.rtc.player.controls.rewind();
         },
 
         play: function() {
             CtaButtons.closeAllSideCards();
-            VideoPlayerInterface.hideResumeSplash();
             VideoPlayerInterface.iframeWindow.rtc.player.controls.resume();
         },
 
-        pause: function(showResumeSplash) {
+        /**
+         * Pauses the video
+         */
+        pause: function() {
             VideoPlayerInterface.iframeWindow.rtc.player.controls.pause();
-
-            if(showResumeSplash !== false) {
-                VideoPlayerInterface.showResumeSplash();
-            }
         },
 
         skipForward: function(currentState) {
             CtaButtons.closeAllSideCards();
-            VideoPlayerInterface.hideResumeSplash();
             VideoPlayerInterface.iframeWindow.rtc.player.controls.fastForward();
         },
 
         selectState: function(clickedState) {
             CtaButtons.closeAllSideCards();
-            VideoPlayerInterface.hideResumeSplash();
             VideoPlayerInterface.iframeWindow.rtc.timeline.gotoState(clickedState);
         },
 
@@ -2256,8 +2203,7 @@ var iFrameEvents = {
 
         if ($elem.length > 0) {
             CtaButtons.closeAllSideCards();
-            VideoPlayerInterface.hideResumeSplash();
-            VideoPlayerInterface.actions.pause(false);
+            VideoPlayerInterface.actions.pause();
             Timeline.disableTimelineIfNecessary();
             $elem.show();
         }

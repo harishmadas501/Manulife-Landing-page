@@ -16,17 +16,6 @@
     font-size: 16px;
 }
 
-.lteie8 .player__splash {
-    filter: alpha(opacity=50);
-}
-
-.lteie8 .player__splash-image {
-    margin-top: 130px;
-    width: 97px;
-    height: 101px;
-    background-image: url("../images/splash_play_ie.png");
-}
-
 .lteie8 .timeline {
     font-size: 18px;
 }
@@ -61,7 +50,6 @@
 
 .lteie8 .timeline__button-icon--settings--hd {
     background-position-x: 26.923%;
-    background
 }
 
 .lteie8 .timeline__button-icon--settings--4k {
@@ -259,7 +247,7 @@
     margin-bottom: 6px;
     width: 32px;
     height: 32px;
-    background-image: url("../images/side_buttons3.png");
+    background-image: url("../images/cta_icons_ie.png");
 }
 
 .lteie8 .cta--side,
