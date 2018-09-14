@@ -1,0 +1,59 @@
+/* CSS Document */
+
+/*////////////////////////////////////////////////////////////////////////////*/
+/* HD VERSION */
+
+/*////////////////////////////////////////////////////////////////////////////*/
+/* 1420 width HD VERSION supporting 540p video */
+
+/*low bandwidth in HD*/
+#hd_low_bandwidth {
+	height: 38px;
+	position: absolute;
+	cursor: default;
+	color:#1CA2D6;
+	font-size:12px;
+	text-align:center;
+	text-transform:uppercase;
+	font-family: DINMedium, Arial, sans-serif;
+	padding:14px 8px 10px 8px;
+	line-height:13px;
+	display:none;
+}
+
+#timelineContainer {
+	background: url(images/hi-res/timeline-dropshadow-hi-res.png) no-repeat 50% 0px;
+	height: 86px;
+}
+
+#policyDisclaimer {
+	top: -245px;
+	margin: 0px;
+	width: 1160px;
+	left: 130px;
+	font-size: 12px;
+}
+
+#viewerProfile {
+	top: 362px;
+}
+
+#promoWrapper a#hurriance-preparedness-promo {
+	left: 1240px;
+	top: 235px;
+}
+
+#promoWrapper a#id-theft-prevention-promo {
+	left: 1240px;
+	top: 245px;
+}
+
+#promoWrapper a#fire-prevention-promo {
+	left: 1240px;
+	top: 255px;
+}
+
+#customer-loginButtonHighlight {
+	width: 162px;
+	background-position: 68px 218px;
+}
